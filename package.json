@@ -4,13 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "electron ."
+    "start": "electron ."
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "electron": "^17.0.1"
+    "electron": "^17.1.2"
   },
   "dependencies": {
     "python-shell": "^3.0.1"
