@@ -6,8 +6,10 @@ let mainWindow
 app.on('ready', () =>{
 
     mainWindow = new BrowserWindow({
-        width: 1280,
-        heigth:720
+        width: 1920,
+        heigth: 1080,
+        minHeight:720,
+        minWidth:1280,
 
     })
 

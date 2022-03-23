@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>App</title>
-    <script src="../_linkers/serial_guia.js"> </script>
+    <script src="../_linkers/serial.js"></script>
+    
     <style>
         html, body{
             margin: 0px;
@@ -113,7 +114,9 @@
     </div>
     <div id="main">
         <div id="card">
-            <div id="dados"></div>
+            <div id="dados">
+                <div id="serial_teste"></div>
+            </div>
             <div id="tanque"></div>
         </div>
         <div id="card">
@@ -136,6 +139,13 @@
 
         
     </div>
+    <script> 
+        const serial_teste = window.document.getElementById("perfil")
+        
+        serial_teste.addEventListener('click', teste_serial)
+
+        
+    </script>
         
     
 </body>

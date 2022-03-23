@@ -1,14 +1,19 @@
-const { spawn } = require("child_process")
+function teste_serial(){
+    console.log("Testando_serial")
+    var {PythonShell} = require('python-shell')
+    var path = require('path')
 
-function serial_analise(){
-    const child = spawn("python", ["serial.py"])
-    child.on("exit", (code) => console.log("exitCode:", code))
+    serial_teste = document.getElementById("serial_teste")
 
-    child.stdout.on("data", function (buffer) {
-        const message = String(buffer);
-        console.log("stdout:", message);
-    });
+    var opcoes = {
+        scriptPath: path.join(__dirname, '../_engine'),
+        args: [1]
+    }
 
-    child.stdin.write("Olá Python!\n");
+    var serial = new PythonShell('serial.py', opcoes)
+
+    serial.on("message", function(message){
+        swal(message)
+    })
+
 }
-export {message, seria_analise}
