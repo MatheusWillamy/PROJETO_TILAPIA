@@ -13,7 +13,7 @@
             padding: 0px;
             background-color: rgb(5, 60, 143);
         }
-        
+        /* ESTILOS SUPERIORES*/
         .titulo{
             background-color: rgb(18, 170, 157);
             width: auto;
@@ -31,6 +31,8 @@
             margin-top: 10px;
             margin-right: 20px;
         }
+
+        /* ABA DE NAVEGAÇÃO*/
         div#navegação{
             width: 70px;
             height: 90vh;
@@ -40,16 +42,21 @@
             border-top-right-radius: 2vh;
             box-shadow:16px 22px 22px rgba(0, 0, 0, 0.20);
         }
+        /* ESTILO MAIN*/
         div#main{
             display: flex;
             flex-direction: row;
             height: 90vh;
             width: auto;
         }
-        div#card{
+
+        /* CARD ESTILO*/
+        .card{
             background-color: rgb(255, 255, 255);
             width: 300px;
             height: 490px;
+            border-style: solid;
+            border-color: rgb(255, 255, 255);
             border-radius: 20px;
             display: flex;
             flex-direction: column;
@@ -68,7 +75,6 @@
             height: 150px;
             border-radius: 20px;
             box-shadow:0px 8px 15px rgba(0, 0, 0, 0.42);
-
         }
         div#tanque{
             background-color: rgb(11, 106, 161);
@@ -97,7 +103,7 @@
         div#nome_card{
             margin-left: 5px;   
         }
-       
+       /**/
         .notificacao_card{
             background-color: rgb(0, 255, 55);
             height: 40px;
@@ -166,17 +172,21 @@
         <div id="perfil"></div>
     </div>
     <div id="main">
-        <div id="card">
+        <div id="card_01" class="card">
             <div id="titulo_card">
                 <div id="nome_card">Tanque_01</div>
                 <div id="notificacao_card_01" class="notificacao_card"></div>
             </div>
             <div id="dados">
-                <div id="serial_teste"></div>
+                PH =
+                <br>
+                Turbidez =
+                <br>
+                Temperatura =
             </div>
             <div id="tanque"></div>
         </div>
-        <div id="card">
+        <div id="card_02" class="card">
             <div id="titulo_card">
                 <div id="nome_card">Tanque_02</div>
                 <div id="notificacao_card_02" class="notificacao_card"></div>
@@ -186,7 +196,7 @@
             </div>
             <div id="tanque"></div>
         </div>
-        <div id="card">
+        <div id="card_03" class="card">
             <div id="titulo_card">
                 <div id="nome_card">Tanque_03</div>
                 <div id="notificacao_card_03" class="notificacao_card"></div>
@@ -196,7 +206,7 @@
             </div>
             <div id="tanque"></div>
         </div>
-        <div id="card">
+        <div id="card_04" class="card">
             <div id="titulo_card">
                 <div id="nome_card">Tanque_04</div>
                 <div id="notificacao_card_04" class="notificacao_card"></div>
@@ -244,12 +254,17 @@
         
         //CRIANDO VARIAVEIS PARA O TESTE DE NOTIFICAÇÃO
 
+        const card_01 = window.document.getElementById("card_01")
+        const card_02 = window.document.getElementById("card_02")
+        const card_03 = window.document.getElementById("card_03")
+        const card_04 = window.document.getElementById("card_04")
+
         const notificacao_card_01 = window.document.getElementById("notificacao_card_01")
         const notificacao_card_02 = window.document.getElementById("notificacao_card_02")
         const notificacao_card_03 = window.document.getElementById("notificacao_card_03")
         const notificacao_card_04 = window.document.getElementById("notificacao_card_04")
 
-        const verde_1 = window.document.querySelector("#verde_1")
+        const verde_1 = window.document.getElementById("verde_1")
         const amarelo_1 = window.document.getElementById("amarelo_1")
         const vermelho_1 = window.document.getElementById("vermelho_1")
 
@@ -265,26 +280,45 @@
         const amarelo_4 = window.document.getElementById("amarelo_4")
         const vermelho_4 = window.document.getElementById("vermelho_4")
 
-        // LISTAGEM DE EVENTOS
-        verde_1.onclick = function(){notificacao_verde(notificacao_card_01)}
-        verde_2.addEventListener("click", notificacao_verde)
-        verde_3.addEventListener("click", notificacao_verde)
-        verde_4.addEventListener("click", notificacao_verde)
+        // LISTAGEM DE EVENTOS NOTIFICAÇÕES
+        verde_1.onclick = function(){notificacao_verde(notificacao_card_01, card_01)}
+        verde_2.onclick = function(){notificacao_verde(notificacao_card_02, card_02)}
+        verde_3.onclick = function(){notificacao_verde(notificacao_card_03, card_03)}
+        verde_4.onclick = function(){notificacao_verde(notificacao_card_04, card_04)}
 
-        amarelo_1.addEventListener("click", notificacao_amarela)
-        amarelo_2.addEventListener("click", notificacao_amarela)
-        amarelo_3.addEventListener("click", notificacao_amarela)
-        amarelo_4.addEventListener("click", notificacao_amarela)
+        amarelo_1.onclick = function(){notificacao_amarelo(notificacao_card_01, card_01)}
+        amarelo_2.onclick = function(){notificacao_amarelo(notificacao_card_02, card_02)}
+        amarelo_3.onclick = function(){notificacao_amarelo(notificacao_card_03, card_03)}
+        amarelo_4.onclick = function(){notificacao_amarelo(notificacao_card_04, card_04)}
 
-        vermelho_1.addEventListener("click", notificacao_vermelho)
-        vermelho_2.addEventListener("click", notificacao_vermelho)
-        vermelho_3.addEventListener("click", notificacao_vermelho)
-        vermelho_4.addEventListener("click", notificacao_vermelho)
+        vermelho_1.onclick = function(){notificacao_vermelho(notificacao_card_01, card_01)}
+        vermelho_2.onclick = function(){notificacao_vermelho(notificacao_card_02, card_02)}
+        vermelho_3.onclick = function(){notificacao_vermelho(notificacao_card_03, card_03)}
+        vermelho_4.onclick = function(){notificacao_vermelho(notificacao_card_04, card_04)}
 
-        function notificacao_verde(notificacao){
-            notificacao.style.background = "black"
-            window.console.log("verdeeee")
+        //FUNÇÕES DE NOTIFICAÇÃO
+        function notificacao_verde(notificacao, card){
+            notificacao.style.background = "rgb(0, 255, 55)"
+            notificacao.style.boxShadow = "0px 8px 15px rgb(0, 255, 55)"
+            card.style.boxShadow = "0px 8px 15px rgba(0, 0, 0, 0.42)"
+            card.style.borderColor ="rgb(255, 255, 255)"
+            window.console.log("verde")
         }
+        function notificacao_amarelo(notificacao, card){
+            notificacao.style.background = "rgb(247, 222, 0)"
+            notificacao.style.boxShadow = "0px 8px 15px rgb(247, 222, 0)"
+            card.style.boxShadow = "0px 8px 15px rgb(247, 222, 0)"
+            card.style.borderColor = "rgb(247, 222, 0)"
+            window.console.log("amarelo")
+        }
+        function notificacao_vermelho(notificacao, card){
+            notificacao.style.background = "rgb(255, 0, 0)"
+            notificacao.style.boxShadow = "0px 8px 15px rgb(255, 0, 0)"
+            card.style.boxShadow = "0px 8px 15px rgb(255, 0, 0)"
+            card.style.borderColor = "rgb(255, 0, 0)"
+            window.console.log("vermelho")
+        }
+        
         
     </script>
         
