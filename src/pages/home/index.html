@@ -5,6 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>App</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+
     <script src="../_linkers/serial.js"></script>
     
     <style>
@@ -107,23 +112,26 @@
         .notificacao_card{
             background-color: rgb(0, 255, 55);
             height: 40px;
-            width: 40px;
-            border-radius: 100%;
+            width: 80px;
+            border-radius: 15px;
             margin-right: 10px;
             box-shadow:0px 8px 15px rgb(0, 255, 55);
+            font-family: 'Fredoka One', cursive;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         .navegacao{
             width: 65px;
             height: 65px;
             margin-top: 20px;
             background-color: rgba(0, 255, 255, 0);
-            text-align: center;
-            
+            text-align: center; 
         }
         .icone{
             width: 30px;
-            height: auto;
-            
+            height: auto;  
         }
         /* Estilo texte notificação */
         .botao_teste_notificacao_verde{
@@ -175,7 +183,7 @@
         <div id="card_01" class="card">
             <div id="titulo_card">
                 <div id="nome_card">Tanque_01</div>
-                <div id="notificacao_card_01" class="notificacao_card"></div>
+                <div id="notificacao_card_01" class="notificacao_card">ONLINE</div>
             </div>
             <div id="dados">
                 PH =
@@ -300,6 +308,7 @@
         function notificacao_verde(notificacao, card){
             notificacao.style.background = "rgb(0, 255, 55)"
             notificacao.style.boxShadow = "0px 8px 15px rgb(0, 255, 55)"
+            notificacao.innerText = "ONLINE"
             card.style.boxShadow = "0px 8px 15px rgba(0, 0, 0, 0.42)"
             card.style.borderColor ="rgb(255, 255, 255)"
             window.console.log("verde")
@@ -307,6 +316,7 @@
         function notificacao_amarelo(notificacao, card){
             notificacao.style.background = "rgb(247, 222, 0)"
             notificacao.style.boxShadow = "0px 8px 15px rgb(247, 222, 0)"
+            notificacao.innerText = "ATENÇÃO"
             card.style.boxShadow = "0px 8px 15px rgb(247, 222, 0)"
             card.style.borderColor = "rgb(247, 222, 0)"
             window.console.log("amarelo")
@@ -314,6 +324,7 @@
         function notificacao_vermelho(notificacao, card){
             notificacao.style.background = "rgb(255, 0, 0)"
             notificacao.style.boxShadow = "0px 8px 15px rgb(255, 0, 0)"
+            notificacao.innerText = "OFFLINE"
             card.style.boxShadow = "0px 8px 15px rgb(255, 0, 0)"
             card.style.borderColor = "rgb(255, 0, 0)"
             window.console.log("vermelho")
