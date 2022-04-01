@@ -47,6 +47,7 @@
             border-bottom-right-radius: 2vh;
             border-top-right-radius: 2vh;
             box-shadow:16px 22px 22px rgba(0, 0, 0, 0.20);
+            
         }
         /* ESTILO MAIN*/
         div#main{
@@ -54,6 +55,7 @@
             flex-direction: row;
             height: 90vh;
             width: auto;
+            justify-content: space-between;
         }
 
         /* CARD ESTILO*/
@@ -71,6 +73,9 @@
             margin-left: 40px;
             margin-top: 20px;
             box-shadow:16px 22px 22px rgba(0, 0, 0, 0.43);
+            
+            
+            
         }
         div#dados{
             background-color: aliceblue;
@@ -85,7 +90,8 @@
         div#tanque{
             background-color: rgb(11, 106, 161);
             margin: 10px;
-            border-radius: 100%;       
+            border-radius: 270px;   
+            width: auto;    
             height: 270px;
             box-shadow:0px 8px 15px rgba(0, 0, 0, 0.42);
         }
@@ -134,16 +140,83 @@
             50%{opacity: 1;}
             100%{opacity: 0.4;}
         }
+
+        
+        
+
+
         .navegacao{
-            width: 65px;
-            height: 65px;
+            width: 55px;
+            height: 55px;
             margin-top: 20px;
-            background-color: rgba(0, 255, 255, 0);
-            text-align: center; 
+            margin-left: 4px;
+            background-color: rgb(18, 170, 157);
+            border-radius: 65px;
+            box-shadow:3px 8px 15px rgba(0, 0, 0, 0.20);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+        }
+        @keyframes animatee{
+            100%{width: 300px;
+            height: 65px;}
+
+        }
+        @keyframes animator{
+            100%{width:420px;
+            height: 530px;}
+        }
+
+        div#casa:hover{
+            animation-name: animatee;
+            animation-duration: 0.5s;
+            animation-fill-mode: forwards;
+        }
+        div#dispositivos:hover{
+            animation-name: animatee;
+            animation-duration: 0.5s;
+            animation-fill-mode: forwards;
+        }
+        div#adicionar:hover{
+            animation-name: animatee;
+            animation-duration: 0.5s;
+            animation-fill-mode: forwards;
+        }
+        div#configuracoes:hover{
+            animation-name: animatee;
+            animation-duration: 0.5s;
+            animation-fill-mode: forwards;
+        }
+        div#sair:hover{
+            animation-name: animatee;
+            animation-duration: 0.5s;
+            animation-fill-mode: forwards;
+        }
+        div#card_01:hover{
+            animation-name: animator;
+            animation-duration: 0.5s;
+            animation-fill-mode: forwards;
+        }
+        div#card_02:hover{
+            animation-name: animator;
+            animation-duration: 0.5s;
+            animation-fill-mode: forwards;
+        }
+        div#card_03:hover{
+            animation-name: animator;
+            animation-duration: 0.5s;
+            animation-fill-mode: forwards;
+        }
+        div#card_04:hover{
+            animation-name: animator;
+            animation-duration: 0.5s;
+            animation-fill-mode: forwards;
         }
         .icone{
             width: 30px;
-            height: auto;  
+            height: auto;
+            
         }
         /* Estilo texte notificação */
         .botao_teste_notificacao_verde{
@@ -168,9 +241,18 @@
             background-color: aliceblue;
         }
         
+        .correcao{
+           
+            background-color: rgb(255, 0, 157);
+        }
     </style>
 </head>
 <body>
+    
+    
+    <div class="correcao">
+    </div>
+    
     <div id="navegação">
         <div id="casa" class="navegacao">
             <img src="../../componentes/imagens/navegação/casa.png" class="icone">
@@ -188,10 +270,13 @@
             <img src="../../componentes/imagens/navegação/saida.png" class="icone">
         </div>
     </div>
+    
     <div class='titulo'>
         <div id="perfil"></div>
     </div>
+    
     <div id="main">
+        
         <div id="card_01" class="card">
             <div id="titulo_card">
                 <div id="nome_card">Tanque_01</div>
@@ -324,12 +409,7 @@
             notificacao.innerText = "ONLINE"
             card.style.boxShadow = "0px 8px 15px rgba(0, 0, 0, 0.42)"
             card.style.borderColor ="rgb(255, 255, 255)"
-            window.console.log("verde")
-
-            
-
-            
-            
+            window.console.log("verde") 
         }
         function notificacao_amarelo(notificacao, card){
             
@@ -340,8 +420,7 @@
             card.style.borderColor = "rgb(247, 222, 0)"
             window.console.log("amarelo")
 
-            notificacao.classList.add("notificacao_animacao")
-            
+            notificacao.classList.add("notificacao_animacao")   
         }
         function notificacao_vermelho(notificacao, card){
             notificacao.style.background = "rgb(255, 0, 0)"
@@ -352,6 +431,27 @@
             window.console.log("vermelho")
             
             notificacao.classList.add("notificacao_animacao")
+        }
+
+
+
+
+
+        //VARIAVEIS NAVEGACAO
+        botao_home = window.document.getElementById("casa")
+        botao_dispositivos = window.document.getElementById("dispositivos")
+        botao_adicionar = window.document.getElementById("adicionar")
+        botao_config = window.document.getElementById("configuracoes")
+        botao_sair = window.document.getElementById("sair")
+        //LISTAGEM DE EVENTOS NAVEGAÇÃO
+        //botao_home.onmousemove = function(){animacao_navegacao(botao_home)}
+        //botao_home.onmousedown = function(){animacao_navegacao(botao_home)}
+
+        //FUNÇÕES NAVEGAÇÃO
+
+        function animacao_navegacao(icone){
+            icone.classList.add("navegacao_animacao")
+            console.log("animacao feita")
         }
         
         
