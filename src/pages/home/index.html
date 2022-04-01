@@ -122,6 +122,17 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            
+        }
+
+        .notificacao_animacao{
+            /* animação de alerta */
+            animation: animate 1s linear infinite;
+        }
+        @keyframes animate {
+            0%{opacity: 0.4;}
+            50%{opacity: 1;}
+            100%{opacity: 0.4;}
         }
         .navegacao{
             width: 65px;
@@ -184,7 +195,7 @@
         <div id="card_01" class="card">
             <div id="titulo_card">
                 <div id="nome_card">Tanque_01</div>
-                <div id="notificacao_card_01" class="notificacao_card">ONLINE</div>
+                <div id="notificacao_card_01" class="notificacao_card" data-animaton = ''>ONLINE</div>
             </div>
             <div id="dados">
                 PH =
@@ -306,20 +317,31 @@
 
         //FUNÇÕES DE NOTIFICAÇÃO
         function notificacao_verde(notificacao, card){
+            notificacao.classList.remove("notificacao_animacao")
+            
             notificacao.style.background = "rgb(0, 255, 55)"
             notificacao.style.boxShadow = "0px 8px 15px rgb(0, 255, 55)"
             notificacao.innerText = "ONLINE"
             card.style.boxShadow = "0px 8px 15px rgba(0, 0, 0, 0.42)"
             card.style.borderColor ="rgb(255, 255, 255)"
             window.console.log("verde")
+
+            
+
+            
+            
         }
         function notificacao_amarelo(notificacao, card){
+            
             notificacao.style.background = "rgb(247, 222, 0)"
             notificacao.style.boxShadow = "0px 8px 15px rgb(255, 255, 0)"
             notificacao.innerText = "ATENÇÃO"
             card.style.boxShadow = "0px 8px 15px rgb(255, 255, 0)"
             card.style.borderColor = "rgb(247, 222, 0)"
             window.console.log("amarelo")
+
+            notificacao.classList.add("notificacao_animacao")
+            
         }
         function notificacao_vermelho(notificacao, card){
             notificacao.style.background = "rgb(255, 0, 0)"
@@ -328,6 +350,8 @@
             card.style.boxShadow = "0px 8px 15px rgb(255, 0, 0)"
             card.style.borderColor = "rgb(255, 0, 0)"
             window.console.log("vermelho")
+            
+            notificacao.classList.add("notificacao_animacao")
         }
         
         
