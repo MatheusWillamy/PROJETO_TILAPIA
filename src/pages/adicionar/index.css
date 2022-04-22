@@ -1,0 +1,103 @@
+
+html, body{
+    margin: 0px;
+    padding: 0px;
+    background-color: rgb(255, 255, 255);
+}
+/* ESTILOS SUPERIORES*/
+.titulo{
+    background-color: rgb(18, 170, 157);
+    width: auto;
+    height: 70px;
+    text-align: center;
+    border-bottom-right-radius: 2vh;
+    box-shadow:0px 8px 15px rgba(0, 0, 0, 0.42);
+}
+div#perfil{
+    background-color: rgb(255, 255, 255);
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    float: right;
+    margin-top: 10px;
+    margin-right: 20px;
+}
+
+/* ABA DE NAVEGAÇÃO*/
+div#navegação{
+    width: 70px;
+    height: 90vh;
+    background-color: rgb(18, 170, 157);
+    float: left;
+    border-bottom-right-radius: 2vh;
+    border-top-right-radius: 2vh;
+    box-shadow:16px 22px 22px rgba(0, 0, 0, 0.20);
+    
+}
+.navegacao{
+    width: 55px;
+    height: 55px;
+    margin-top: 20px;
+    margin-left: 4px;
+    background-color: rgb(18, 170, 157);
+    border-radius: 65px;
+    box-shadow:3px 8px 15px rgba(0, 0, 0, 0.20);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    
+}
+.navegacao_div{
+    width: auto;
+    height: 90vh;
+}
+.icone{
+    width: 30px;
+    height: auto;
+    
+}
+/* ESTILO MAIN*/
+div#main{
+    display: flex;
+    flex-direction: row;
+    height: 90vh;
+    position: relative;
+    background-color: rgba(156, 156, 218, 0);
+}
+
+
+
+
+
+/**/
+
+
+/* ANIMAÇÕES E EVENTOS */
+
+
+@keyframes animatee{
+    100%{
+    width: 300px;
+    height: 65px;
+    margin-left: 5px;}
+
+}
+
+.navegacao:hover{
+    animation-name: animatee;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+
+}
+
+
+
+
+/* div#linha_de_apresentacao::-webkit-scrollbar{
+    width: 10px;
+} */
+
+
+
+
