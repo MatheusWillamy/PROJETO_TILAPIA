@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
 
-    <script src="../_linkers/serial.js"></script>
+    
     <link rel="stylesheet" href="index.css">
     
 </head>
@@ -60,11 +60,7 @@
                     <div id="notificacao_card_01" class="notificacao_card" data-animaton = ''>ONLINE</div>
                 </div>
                 <div id="dados">
-                    PH =
-                    <br>
-                    Turbidez =
-                    <br>
-                    Temperatura =
+                    <div id="serial_teste_1"></div>
                 </div>
                 <div id="tanque"></div>
             </div>
@@ -78,7 +74,7 @@
                 </div>
                 <div id="tanque"></div>
             </div>
-            <div id="card_03" class="card">
+            <!-- <div id="card_03" class="card">
                 <div id="titulo_card">
                     <div id="nome_card">Tanque_03</div>
                     <div id="notificacao_card_03" class="notificacao_card"></div>
@@ -117,10 +113,10 @@
                     <div id="serial_teste"></div>
                 </div>
                 <div id="tanque"></div>
-            </div>
+            </div> -->
         </div>
 
-        <!-- <div id="teste_notificacao">
+        <div id="teste_notificacao">
             <div>
                 Tanque 1
                 <div id="verde_1" class="botao_teste_notificacao_verde"></div>
@@ -145,7 +141,7 @@
                 <div id="amarelo_4" class="botao_teste_notificacao_amarelo"></div>
                 <div id="vermelho_4" class="botao_teste_notificacao_vermelho"></div>
             </div>
-        </div> -->
+        </div>
         
     </div>
     
@@ -183,7 +179,7 @@
 
         // LISTAGEM DE EVENTOS NOTIFICAÇÕES 
         // BOTOES DE TESTE
-        verde_1.onclick = function(){notificacao_verde(notificacao_card_01, card_01)}
+        verde_1.onclick = function(){dados_atualizacao()}
         verde_2.onclick = function(){notificacao_verde(notificacao_card_02, card_02)}
         verde_3.onclick = function(){notificacao_verde(notificacao_card_03, card_03)}
         verde_4.onclick = function(){notificacao_verde(notificacao_card_04, card_04)}
@@ -253,6 +249,31 @@
         }
         
         
+        // ==============================================
+        //TESTE SERIAL
+        //====================================
+
+        const {ipcRenderer} = require('electron');
+
+
+        const serial_test = window.document.getElementById("serial_teste_1")
+
+        // verde_1.onclick = function(){ 
+        //     dados_atualizacao()
+            
+        // }
+
+        function dados_atualizacao(){
+            //serial_test.innerText = `PH = ${dados_consulta}`
+            // console.log("tamo aki1")
+            const chamada = "atualizar"
+            ipcRenderer.send('serial_consulta_de_dado', chamada);
+            // console.log(chamada)
+        }
+        ipcRenderer.on('serial_consulta_de_dado', function(event, dado){
+            serial_test.innerText = `PH = ${dado}`
+            console.log(dado)
+        })
     </script>
         
     
