@@ -7,7 +7,7 @@ function serial_consulta_de_dado(){
 
     //const child_Python = spawn('python', ['--version'])
 
-    var dado = child_Python.stdout.on('data', (data) =>{
+    child_Python.stdout.on('data', (data) =>{
         dado = data.toString()
         console.log(`stdout: ${data}`);
         retorno(dado)
@@ -23,7 +23,7 @@ function serial_consulta_de_dado(){
     })
     console.log(`dadoooooooo ${dado}`)
     return dado
-    
+   
 }
 let mainWindow
 
