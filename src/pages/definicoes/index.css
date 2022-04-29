@@ -23,35 +23,8 @@ div#perfil{
     margin-right: 20px;
 }
 
-/* ABA DE NAVEGAÇÃO*/
-div#navegação{
-    width: 70px;
-    height: 90vh;
-    background-color: rgb(18, 170, 157);
-    float: left;
-    border-bottom-right-radius: 2vh;
-    border-top-right-radius: 2vh;
-    box-shadow:16px 22px 22px rgba(0, 0, 0, 0.20);
-    
-}
-.navegacao{
-    width: 55px;
-    height: 55px;
-    margin-top: 20px;
-    margin-left: 4px;
-    background-color: rgb(18, 170, 157);
-    border-radius: 65px;
-    box-shadow:3px 8px 15px rgba(0, 0, 0, 0.20);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
-    
-}
-.navegacao_div{
-    width: auto;
-    height: 90vh;
-}
+
+
 .icone{
     width: 30px;
     height: auto;
