@@ -1,1 +1,7 @@
-print('Cuscux Com frango funcionou')
+import random
+
+
+
+
+random.seed()
+print(random.random())

@@ -270,7 +270,7 @@
             ipcRenderer.send('serial_consulta_de_dado', chamada);
             // console.log(chamada)
         }
-        ipcRenderer.on('serial_consulta_de_dado', function(event, dado){
+        ipcRenderer.on('serial_consulda_de_dado_res', function(event, dado){
             serial_test.innerText = `PH = ${dado}`
             console.log(dado)
         })

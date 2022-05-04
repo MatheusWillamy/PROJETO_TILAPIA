@@ -3,14 +3,14 @@ const { app, BrowserWindow} = require('electron')
 
 function serial_consulta_de_dado(){
     const { spawn } = require('child_process')
-    const child_Python = spawn('python', ['index.py'])
+    const child_Python = spawn('python', ['engine/index.py'])
 
     //const child_Python = spawn('python', ['--version'])
 
     child_Python.stdout.on('data', (data) =>{
         dado = data.toString()
         console.log(`stdout: ${data}`);
-        retorno(dado)
+        
         return dado;
     })
 
@@ -69,7 +69,7 @@ ipcMain.on('serial_consulta_de_dado', function(event, mensagem){
     const chamada = mensagem;
     if (chamada == "atualizar"){
         dado = serial_consulta_de_dado()
-        event.reply('serial_consulda_de_dado', dado)
+        event.reply('serial_consulda_de_dado_res', dado)
         console.log(`chamadaaaaaaaaa ${dado} `)
 
     }  
