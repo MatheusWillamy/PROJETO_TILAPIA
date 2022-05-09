@@ -1,7 +1,8 @@
 const { app, BrowserWindow} = require('electron')
 
-
+var dado = '{ph:"aguarde", temperatura:"aguarde", turbidez:"aguarde"}'
 function serial_consulta_de_dado(){
+    
     const { spawn } = require('child_process')
     const child_Python = spawn('python', ['engine/index.py'])
 
@@ -9,7 +10,7 @@ function serial_consulta_de_dado(){
 
     child_Python.stdout.on('data', (data) =>{
         dado = data.toString()
-        console.log(`stdout: ${data}`);
+        //console.log(`stdout: ${data}`);
         
         return dado;
     })
@@ -19,9 +20,8 @@ function serial_consulta_de_dado(){
     })
 
     child_Python.on('close', (code) =>{
-        console.log(`child process exited with code ${code}`)
+        //console.log(`child process exited with code ${code}`)
     })
-    console.log(`dadoooooooo ${dado}`)
     return dado
    
 }
@@ -70,14 +70,9 @@ ipcMain.on('serial_consulta_de_dado', function(event, mensagem){
     if (chamada == "atualizar"){
         dado = serial_consulta_de_dado()
         event.reply('serial_consulda_de_dado_res', dado)
-        console.log(`chamadaaaaaaaaa ${dado} `)
+        console.log(`RETORNO:${dado} `)
 
     }  
     
 
 })
-function retorno(dado){
-    dado = dado
-    console.log(`chamada ${dado} `)
-    return dado
-}

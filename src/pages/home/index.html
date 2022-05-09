@@ -10,10 +10,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2? família=Radio+Canada:wght@500&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="index.css">
-    
+    <script type="text/javascript" src="index.js"></script>
 </head>
 <body>
     
@@ -60,9 +61,17 @@
                     <div id="notificacao_card_01" class="notificacao_card" data-animaton = ''>ONLINE</div>
                 </div>
                 <div id="dados">
-                    <div id="serial_teste_1"></div>
-                </div>
-                <div id="tanque"></div>
+                    
+                    <div class="serial_dado" id="ph_01">
+                        PH = aguarde...
+                    </div>
+                    <div class="serial_dado" id="temperatura_01">
+                        TEMPERATURA = aguarde...
+                    </div>
+                    <div class="serial_dado" id="turbidez_01">
+                        TURBIDEZ = aguarde...
+                    </div>  
+                </div> 
             </div>
             <div id="card_02" class="card">
                 <div id="titulo_card">
@@ -71,8 +80,7 @@
                 </div>
                 <div id="dados">
                     <div id="serial_teste"></div>
-                </div>
-                <div id="tanque"></div>
+                </div>  
             </div>
             <!-- <div id="card_03" class="card">
                 <div id="titulo_card">
@@ -114,6 +122,9 @@
                 </div>
                 <div id="tanque"></div>
             </div> -->
+            <div class="botao_dados_card" id="botao_dados_card">
+                ATUALIZAR
+            </div>
         </div>
 
         <div id="teste_notificacao">
@@ -179,7 +190,7 @@
 
         // LISTAGEM DE EVENTOS NOTIFICAÇÕES 
         // BOTOES DE TESTE
-        verde_1.onclick = function(){dados_atualizacao()}
+        verde_1.onclick = function(){notificacao_verde(notificacao_card_01, card_02)}
         verde_2.onclick = function(){notificacao_verde(notificacao_card_02, card_02)}
         verde_3.onclick = function(){notificacao_verde(notificacao_card_03, card_03)}
         verde_4.onclick = function(){notificacao_verde(notificacao_card_04, card_04)}
@@ -254,26 +265,48 @@
         //====================================
 
         const {ipcRenderer} = require('electron');
-
-
-        const serial_test = window.document.getElementById("serial_teste_1")
-
-        // verde_1.onclick = function(){ 
-        //     dados_atualizacao()
-            
-        // }
-
+        //variaveis card 1
+        const ph_01 = window.document.getElementById("ph_01")
+        const temperatura_01 = window.document.getElementById("temperatura_01")
+        const turbidez_01 = window.document.getElementById("turbidez_01")
+        //função de adquirir dados / receber de card
         function dados_atualizacao(){
-            //serial_test.innerText = `PH = ${dados_consulta}`
-            // console.log("tamo aki1")
             const chamada = "atualizar"
             ipcRenderer.send('serial_consulta_de_dado', chamada);
-            // console.log(chamada)
         }
-        ipcRenderer.on('serial_consulda_de_dado_res', function(event, dado){
-            serial_test.innerText = `PH = ${dado}`
-            console.log(dado)
+        ipcRenderer.on('serial_consulda_de_dado_res', function(event, dado){ 
+            atualizacao_de_card(dado) 
         })
+        
+        function atualizacao_de_card(dado){
+            
+            // estilo de dados
+            //dado{
+            //     ph:
+            //     temperatura:
+            //     turbidez:
+            // }
+            var ph, temperatura, turbidez
+
+            var dado_json = dado
+            var dados = JSON.parse(dado_json);
+            //
+            var ph = dados.ph
+            var temperatura = dados.temperatura
+            var turbidez = dados.turbidez
+            //
+
+            //atualizaçao de card
+            ph_01.innerText = `PH = ${ph}`
+            temperatura_01.innerText = `TEMPERATURA = ${temperatura}`
+            turbidez_01.innerText = `TURBIDEZ = ${turbidez}`
+            
+            
+        } 
+
+        //BOTAO ATUALIZAR DADOS CARD
+        botao_dados_card = document.getElementById("botao_dados_card")
+        botao_dados_card.onclick = function(){dados_atualizacao()}
     </script>
         
     

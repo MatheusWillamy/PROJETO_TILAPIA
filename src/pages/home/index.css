@@ -58,21 +58,20 @@ div#linha_de_apresentacao{
 .card{
     background-color: rgb(255, 255, 255);
     width: 300px;
-    height: 490px;
+    height: 235px;
     border-style: solid;
     border-color: rgb(255, 255, 255);
     border-radius: 20px;
     display: flex;
     flex-direction: column;
     min-width: 300px;
-    min-height: 450px;
     margin-top: 20px;
     box-shadow:16px 22px 22px rgba(0, 0, 0, 0.43);
     margin-left: 20px;
      
 }
 div#dados{
-    background-color: aliceblue;
+    background-color: rgb(55, 161, 255);
     border-style: solid;
     border-color: rgb(216, 214, 214);
     margin-top: 10px;
@@ -80,6 +79,20 @@ div#dados{
     height: 150px;
     border-radius: 20px;
     box-shadow:0px 8px 15px rgba(0, 0, 0, 0.42);
+    display: flex;
+    flex-direction: column;
+}
+
+.serial_dado{
+    border-style: solid;
+    border-width: 2px;
+    border-color: rgba(0, 93, 214, 0.432);
+    border-radius: 10px;
+    font-family: 'Radio Canada', sans-serif;
+    color: rgb(255, 255, 255);
+    font-size: 17px;
+    margin: 3px;
+    min-height: 25px;
 }
 div#tanque{
     background-color: rgb(11, 106, 161);
@@ -220,4 +233,21 @@ div#teste_notificacao{
 .correcao{
     
     background-color: rgb(255, 0, 157);
+}
+
+
+
+
+/* BOTAO ATULIZAR DADOS DE CARD */
+.botao_dados_card{
+    width: 100px;
+    height: 50px;
+    border-radius: 40px;
+    background-color: rgb(211, 74, 74);
+    font-family: 'Fredoka One', cursive;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
 }
