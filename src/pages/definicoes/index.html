@@ -7,11 +7,13 @@
     <title>Definições</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="../../componentes/barra_navegacao.css">
+
+    <script src="index.js"></script>
 </head>
 <body>
     <div class='titulo'>
@@ -40,19 +42,19 @@
     <div id="main">
 
         <div class="grupo">
-            <div class="titulo_topicos">Dados de Operação</div>
+            <div class="titulo_topicos" id="botao_1">Dados de Operação</div>
             <div class="container">
                 <div class="variaveis"> <div class="titulo_variaveis">Temperatura</div>
-                <div class="valor_variavel">Valor minimo <input type="number"> </div>
-                <div class="valor_variavel">Valor maximo <input type="number"></div>
+                <div class="valor_variavel" >Valor minimo <input type="number" id="temp_min"> </div>
+                <div class="valor_variavel" >Valor maximo <input type="number" id="temp_max"></div>
                 </div> 
                 <div class="variaveis"> <div class="titulo_variaveis">PH</div>
-                    <div class="valor_variavel">Valor minimo <input type="number"> </div>
-                    <div class="valor_variavel">Valor maximo <input type="number"></div>
+                    <div class="valor_variavel" >Valor minimo <input type="number" id="ph_min"> </div>
+                    <div class="valor_variavel" >Valor maximo <input type="number" id="ph_max"></div>
                 </div> 
                 <div class="variaveis"> <div class="titulo_variaveis">Turbidez</div>
-                    <div class="valor_variavel">Valor minimo <input type="number"> </div>
-                    <div class="valor_variavel">Valor maximo <input type="number"></div>
+                    <div class="valor_variavel" >Valor minimo <input type="number" id="turbidez_min"> </div>
+                    <div class="valor_variavel" >Valor maximo <input type="number" id="turbidez_max"></div>
                 </div> 
             </div>
             
@@ -69,6 +71,50 @@
             <div class="titulo_topicos">Limite de Operação</div>
         </div>
 
+
+
+
+
+        <script>
+            const temp_min = document.getElementById("temp_min")
+            const temp_max= document.getElementById("temp_max")
+            const ph_min = document.getElementById("ph_min")
+            const ph_max = document.getElementById("ph_max")
+            const turbidez_min = document.getElementById("turbidez_min")
+            const turbidez_max = document.getElementById("turbidez_max")
+
+            const botao = window.document.getElementById("botao_1")
+
+            botao.addEventListener("click", amostragem_de_dados)
+
+
+            function amostragem_de_dados() {
+
+                var temp_min_d = temp_min.value
+                var temp_max_d = temp_max.value 
+                var ph_min_d = ph_min.value 
+                var ph_max_d = ph_max.value 
+                var turbidez_min_d = turbidez_min.value 
+                var turbidez_max_d = turbidez_max.value 
+                console.log(`{
+                    
+                    temp_min:${temp_min_d}
+                    temp_max:${temp_max_d}
+                    turbidez_min:${turbidez_min_d}
+                    turbidez_max:${turbidez_max_d}                    
+                    ph_min:${ph_min_d}
+                    ph_max:${ph_max_d}
+
+                    
+                    
+                    
+                    
+                    `)
+
+
+            }
+
+        </script>
     </div>
 </body>
 </html>
