@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="../../componentes/barra_navegacao.css">
 
@@ -40,9 +40,11 @@
     
     
     <div id="main">
-
+        
+        <div class="botao_de_salvar" id="botao_de_salvar">SALVAR</div>
         <div class="grupo">
-            <div class="titulo_topicos" id="botao_1">Dados de Operação</div>
+            <div class="titulo_topicos">Dados de Operação</div>
+            
             <div class="container">
                 <div class="variaveis"> <div class="titulo_variaveis">Temperatura</div>
                 <div class="valor_variavel" >Valor minimo <input type="number" id="temp_min"> </div>
@@ -83,7 +85,7 @@
             const turbidez_min = document.getElementById("turbidez_min")
             const turbidez_max = document.getElementById("turbidez_max")
 
-            const botao = window.document.getElementById("botao_1")
+            const botao = window.document.getElementById("botao_de_salvar")
 
             botao.addEventListener("click", amostragem_de_dados)
 
@@ -96,16 +98,14 @@
                 var ph_max_d = ph_max.value 
                 var turbidez_min_d = turbidez_min.value 
                 var turbidez_max_d = turbidez_max.value 
-                console.log(`{  
+                var definicoes_de_operagem = `{  
                     "temp_min":${temp_min_d}
                     "temp_max":${temp_max_d}
                     "turbidez_min":${turbidez_min_d}
                     "turbidez_max":${turbidez_max_d}                    
                     "ph_min":${ph_min_d}
                     "ph_max":${ph_max_d}
-                }`)
-
-
+                }`
             }
 
         </script>
