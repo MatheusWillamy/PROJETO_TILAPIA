@@ -64,6 +64,8 @@ app.on('window-all-closed', () =>{
 //===================================
 
 const {ipcMain} = require('electron');
+const fs = require('fs');
+const { fstat } = require('fs')
 
 ipcMain.on('serial_consulta_de_dado', function(event, mensagem){
     const chamada = mensagem;
@@ -74,5 +76,24 @@ ipcMain.on('serial_consulta_de_dado', function(event, mensagem){
 
     }  
     
+
+})
+
+ipcMain.on('salvar_definicoes', function(event, dados){
+    const dados_definicao = dados
+
+
+    //armazenamento local
+    fs.writeFile('definicoes.txt', dados_definicao, (err) =>{
+        if(err)throw err;
+        
+        console.log('Salvamento completo!')
+
+    })
+
+    console.log(`Dados de definicao ${dados_definicao}`)
+    
+
+
 
 })

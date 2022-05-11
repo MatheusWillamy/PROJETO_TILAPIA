@@ -1,0 +1,1 @@
+{  "temp_min":4 "temp_max":7 "turbidez_min":9 "turbidez_max":7 "ph_min":8 "ph_max":3}
