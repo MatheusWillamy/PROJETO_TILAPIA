@@ -82,18 +82,20 @@ ipcMain.on('serial_consulta_de_dado', function(event, mensagem){
 ipcMain.on('salvar_definicoes', function(event, dados){
     const dados_definicao = dados
 
-
     //armazenamento local
-    fs.writeFile('definicoes.txt', dados_definicao, (err) =>{
-        if(err)throw err;
-        
-        console.log('Salvamento completo!')
-
-    })
-
+    fs.writeFileSync('definicoes.txt', dados_definicao)
+    console.log('Salvamento completo!')
     console.log(`Dados de definicao ${dados_definicao}`)
-    
+})
 
+ipcMain.on('consulta_dados_definicoes', function(event, dados){
+    if (dados == "consulta_de_dados"){
+
+        var definicoes = fs.readFileSync('definicoes.txt')
+        console.log (`Retorno das defincoes ${definicoes}`)
+        event.reply('consulta_dados_definicoes_res', definicoes.toString())
+        console.log("Definições Retornadas")
+    }
 
 
 })

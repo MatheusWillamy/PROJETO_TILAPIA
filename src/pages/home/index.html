@@ -275,7 +275,7 @@
             ipcRenderer.send('serial_consulta_de_dado', chamada);
         }
         ipcRenderer.on('serial_consulda_de_dado_res', function(event, dado){ 
-            atualizacao_de_card(dado) 
+            atualizacao_de_card(dado)
         })
         
         function atualizacao_de_card(dado){

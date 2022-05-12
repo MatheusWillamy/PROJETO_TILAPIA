@@ -47,16 +47,16 @@
             
             <div class="container">
                 <div class="variaveis"> <div class="titulo_variaveis">Temperatura</div>
-                <div class="valor_variavel" >Valor minimo <input type="number" id="temp_min"> </div>
-                <div class="valor_variavel" >Valor maximo <input type="number" id="temp_max"></div>
+                <div class="valor_variavel" >Valor minimo <input type="number" id="temp_min" value=""> </div>
+                <div class="valor_variavel" >Valor maximo <input type="number" id="temp_max" value=""></div>
                 </div> 
                 <div class="variaveis"> <div class="titulo_variaveis">PH</div>
-                    <div class="valor_variavel" >Valor minimo <input type="number" id="ph_min"> </div>
-                    <div class="valor_variavel" >Valor maximo <input type="number" id="ph_max"></div>
+                    <div class="valor_variavel" >Valor minimo <input type="number" id="ph_min" value=""> </div>
+                    <div class="valor_variavel" >Valor maximo <input type="number" id="ph_max" value=""></div>
                 </div> 
                 <div class="variaveis"> <div class="titulo_variaveis">Turbidez</div>
-                    <div class="valor_variavel" >Valor minimo <input type="number" id="turbidez_min"> </div>
-                    <div class="valor_variavel" >Valor maximo <input type="number" id="turbidez_max"></div>
+                    <div class="valor_variavel" >Valor minimo <input type="number" id="turbidez_min" value=""> </div>
+                    <div class="valor_variavel" >Valor maximo <input type="number" id="turbidez_max" value=""></div>
                 </div> 
             </div>
             
@@ -91,7 +91,8 @@
             const botao = window.document.getElementById("botao_de_salvar")
 
             botao.addEventListener("click", salvar_definicoes)
-
+            
+            consulta_de_definicoes()
 
             function salvar_definicoes() {
 
@@ -101,9 +102,30 @@
                 var ph_max_d = ph_max.value 
                 var turbidez_min_d = turbidez_min.value 
                 var turbidez_max_d = turbidez_max.value 
-                var definicoes_de_operagem = `{  "temp_min":${temp_min_d} "temp_max":${temp_max_d} "turbidez_min":${turbidez_min_d} "turbidez_max":${turbidez_max_d} "ph_min":${ph_min_d} "ph_max":${ph_max_d}}`
+                var definicoes_de_operagem = `{"temp_min":${temp_min_d}, "temp_max":${temp_max_d}, "turbidez_min":${turbidez_min_d}, "turbidez_max":${turbidez_max_d}, "ph_min":${ph_min_d}, "ph_max":${ph_max_d}}`
 
                 ipcRenderer.send('salvar_definicoes', definicoes_de_operagem )
+
+            }
+            function consulta_de_definicoes(){
+                ipcRenderer.send('consulta_dados_definicoes','consulta_de_dados')
+
+                
+            }
+            ipcRenderer.on('consulta_dados_definicoes_res', function(event, dados){
+                    dados_retorno(dados)
+                    console.log(dados)
+            })
+            function dados_retorno(dados){
+                var definicoes = JSON.parse(dados)
+                console.log(definicoes)
+
+                temp_min.value = definicoes.temp_min
+                temp_max.value = definicoes.temp_max
+                turbidez_min.value = definicoes.turbidez_min
+                turbidez_max.value = definicoes.turbidez_max
+                ph_min.value = definicoes.ph_min
+                ph_max.value = definicoes.ph_max
 
             }
 
