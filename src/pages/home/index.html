@@ -270,10 +270,13 @@
         const temperatura_01 = window.document.getElementById("temperatura_01")
         const turbidez_01 = window.document.getElementById("turbidez_01")
         //função de adquirir dados / receber de card
+        
+        
         function dados_atualizacao(){
             const chamada = "atualizar"
             ipcRenderer.send('serial_consulta_de_dado', chamada);
         }
+        setInterval(dados_atualizacao, 1000)
         ipcRenderer.on('serial_consulda_de_dado_res', function(event, dado){ 
             atualizacao_de_card(dado)
         })
