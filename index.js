@@ -94,7 +94,7 @@ ipcMain.on('consulta_dados_definicoes', function(event, dados){
         var definicoes = fs.readFileSync('definicoes.txt')
         console.log (`Retorno das defincoes ${definicoes}`)
         event.reply('consulta_dados_definicoes_res', definicoes.toString())
-        console.log("Definições Retornadas")
+        
     }
 
 
