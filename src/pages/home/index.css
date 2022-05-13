@@ -157,7 +157,7 @@ div#nome_card{
     height: 55px;
     margin-top: 20px;
     margin-left: 4px;
-    background-color: rgb(18, 170, 157);
+    background-color: rgb(255, 255, 255);
     border-radius: 65px;
     box-shadow:3px 8px 15px rgba(0, 0, 0, 0.20);
     display: flex;
