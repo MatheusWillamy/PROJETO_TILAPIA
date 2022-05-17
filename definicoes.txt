@@ -1,1 +1,3 @@
-{"temp_min":25, "temp_max":30, "turbidez_min":0, "turbidez_max":3000, "ph_min":2, "ph_max":4}
+
+
+
