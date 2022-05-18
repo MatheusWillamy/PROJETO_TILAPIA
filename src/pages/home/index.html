@@ -54,33 +54,38 @@
         
         
         <div id="linha_de_apresentacao">
+            <div class="prender1">
+                <div id="card_01" class="card">
+                    <div id="titulo_card">
+                        <div id="nome_card">Tanque_01</div>
+                        <div id="notificacao_card_01" class="notificacao_card" data-animaton = ''>ONLINE</div>
+                    </div>
+                    <div id="dados">
+                        
+                        <div class="serial_dado" id="ph_01">
+                            PH = aguarde...
+                        </div>
+                        <div class="serial_dado" id="temperatura_01">
+                            TEMPERATURA = aguarde...
+                        </div>
+                        <div class="serial_dado" id="turbidez_01">
+                            TURBIDEZ = aguarde...
+                        </div>  
+                    </div> 
+                </div>
 
-            <div id="card_01" class="card">
-                <div id="titulo_card">
-                    <div id="nome_card">Tanque_01</div>
-                    <div id="notificacao_card_01" class="notificacao_card" data-animaton = ''>ONLINE</div>
-                </div>
-                <div id="dados">
-                    
-                    <div class="serial_dado" id="ph_01">
-                        PH = aguarde...
-                    </div>
-                    <div class="serial_dado" id="temperatura_01">
-                        TEMPERATURA = aguarde...
-                    </div>
-                    <div class="serial_dado" id="turbidez_01">
-                        TURBIDEZ = aguarde...
-                    </div>  
-                </div> 
             </div>
-            <div id="card_02" class="card">
-                <div id="titulo_card">
-                    <div id="nome_card">Tanque_02</div>
-                    <div id="notificacao_card_02" class="notificacao_card"></div>
+            <div class="prender" >
+                <div id="card_02" class="card">
+                    <div id="titulo_card">
+                        <div id="nome_card">Tanque_02</div>
+                        <div id="notificacao_card_02" class="notificacao_card"></div>
+                    </div>
+                    <div id="dados">
+                        <div id="serial_teste"></div>
+                    </div>  
                 </div>
-                <div id="dados">
-                    <div id="serial_teste"></div>
-                </div>  
+
             </div>
             <!-- <div id="card_03" class="card">
                 <div id="titulo_card">
@@ -190,7 +195,7 @@
 
         // LISTAGEM DE EVENTOS NOTIFICAÇÕES 
         // BOTOES DE TESTE
-        verde_1.onclick = function(){notificacao_verde(notificacao_card_01, card_02)}
+        verde_1.onclick = function(){notificacao_verde(notificacao_card_01, card_01)}
         verde_2.onclick = function(){notificacao_verde(notificacao_card_02, card_02)}
         verde_3.onclick = function(){notificacao_verde(notificacao_card_03, card_03)}
         verde_4.onclick = function(){notificacao_verde(notificacao_card_04, card_04)}
@@ -217,7 +222,8 @@
             window.console.log("verde") 
         }
         function notificacao_amarelo(notificacao, card){
-            
+            notificacao.classList.remove("notificacao_animacao")
+
             notificacao.style.background = "rgb(247, 222, 0)"
             notificacao.style.boxShadow = "0px 8px 15px rgb(255, 255, 0)"
             notificacao.innerText = "ATENÇÃO"
@@ -228,6 +234,8 @@
             notificacao.classList.add("notificacao_animacao")   
         }
         function notificacao_vermelho(notificacao, card){
+            notificacao.classList.remove("notificacao_animacao")
+            
             notificacao.style.background = "rgb(255, 0, 0)"
             notificacao.style.boxShadow = "0px 8px 15px rgb(255, 0, 0)"
             notificacao.innerText = "OFFLINE"
@@ -337,42 +345,52 @@
             
             //console.log(`testando funcao - ${dados.temperatura} `)
             //console.log(`testando funcao - ${def.temp_min} `)
-            if (dados.temperatura < def.temp_min || dados.temperatura>def.temp_max){
-                console.log("TEMPERATURA FORA DE ORDEM")
-                notificacao_vermelho(notificacao_card_01, card_01)
-
-                notificacao_dados_individuais_vermelho(temperatura_01)
-            }
-            else{
-                notificacao_dados_individuais_verde(temperatura_01)
-            }
-            if (dados.ph < def.ph_min || dados.ph>def.ph_max){
-                console.log("PH FORA DE ORDEM")
-                notificacao_vermelho(notificacao_card_01, card_01)
-
-                notificacao_dados_individuais_vermelho(ph_01)
-            }
-            else{
-                notificacao_dados_individuais_verde(ph_01)
-            }
-            if (dados.turbidez < def.turbidez_min || dados.turbidez>def.turbidez_max){
-                console.log("TURBIDEZ FORA DE ORDEM")
-                notificacao_vermelho(notificacao_card_01, card_01)
-
-                notificacao_dados_individuais_vermelho(turbidez_01)
-            }
-            else{
-                notificacao_dados_individuais_verde(turbidez_01)
-            }
-
-            if (dados.temperatura > def.temp_min && dados.temperatura <def.temp_max
+            
+            notificacao_verde(notificacao_card_01, card_01)
+            if (dados.temperatura > def.temp_min && dados.temperatura < def.temp_max
             && dados.ph > def.ph_min && dados.ph <def.ph_max
             && dados.turbidez > def.turbidez_min && dados.turbidez < def.turbidez_max){
                 
                 console.log("DADOS OK")
                 notificacao_verde(notificacao_card_01, card_01)
 
+                notificacao_dados_individuais_verde(temperatura_01)
+                notificacao_dados_individuais_verde(ph_01)
+                notificacao_dados_individuais_verde(turbidez_01)
             }
+            else{
+
+                if (dados.temperatura < def.temp_min || dados.temperatura > def.temp_max){
+                    console.log("TEMPERATURA FORA DE ORDEM")
+                    notificacao_vermelho(notificacao_card_01, card_01)
+    
+                    notificacao_dados_individuais_vermelho(temperatura_01)
+                }
+                else{
+                    notificacao_dados_individuais_verde(temperatura_01)
+                }
+                if (dados.ph < def.ph_min || dados.ph>def.ph_max){
+                    console.log("PH FORA DE ORDEM")
+                    notificacao_vermelho(notificacao_card_01, card_01)
+    
+                    notificacao_dados_individuais_vermelho(ph_01)
+                }
+                else{
+                    notificacao_dados_individuais_verde(ph_01)
+                }
+                if (dados.turbidez < def.turbidez_min || dados.turbidez > def.turbidez_max){
+                    console.log("TURBIDEZ FORA DE ORDEM")
+                    notificacao_vermelho(notificacao_card_01, card_01)
+    
+                    notificacao_dados_individuais_vermelho(turbidez_01)
+                }
+                else{
+                    notificacao_dados_individuais_verde(turbidez_01)
+                }
+               
+            }
+
+            
 
         }
         //funcoes de tratamento de notificaçoes dos dados individuais
@@ -381,6 +399,7 @@
             variavel.style.borderColor = "rgb(255, 0, 0)"
         }
         function notificacao_dados_individuais_verde(variavel){
+            
             variavel.style.boxShadow = "0px 0px 0px rgba(0, 0, 0, 0)"
             variavel.style.borderColor = "rgba(235, 235, 247, 0.459)"
         }

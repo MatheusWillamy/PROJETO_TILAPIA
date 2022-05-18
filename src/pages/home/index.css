@@ -67,6 +67,7 @@ div#linha_de_apresentacao{
     min-width: 300px;
     margin-top: 20px;
     margin-left: 20px;
+    
      
 }
 div#dados{
@@ -194,6 +195,7 @@ div#nome_card{
     animation-name: animator;
     animation-duration: 0.8s;
     animation-fill-mode: forwards;
+    position: relative;
 }
 
 /* div#linha_de_apresentacao::-webkit-scrollbar{
@@ -250,5 +252,25 @@ div#teste_notificacao{
     display: flex;
     align-items: center;
     justify-content: center;
+    
+}
+
+.prender{
+    width: 300 px;
+    height: 235 px;
+    max-width: 300px;
+    max-height: 235px;
+    margin: 20px;
+    
+    
+}
+.prender1{
+    width: 300 px;
+    height: 235 px;
+    max-width: 300px;
+    max-height: 235px;
+    margin: 20px;
+    
+    
     
 }
