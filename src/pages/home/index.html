@@ -239,9 +239,6 @@
         }
 
 
-
-
-
         //VARIAVEIS NAVEGACAO
         botao_home = window.document.getElementById("casa")
         botao_dispositivos = window.document.getElementById("dispositivos")
@@ -261,7 +258,7 @@
         
         
         // ==============================================
-        //TESTE SERIAL
+        //SERIAL
         //====================================
 
         const {ipcRenderer} = require('electron');
@@ -279,12 +276,15 @@
         //ATUALIZAÇÃO CONTINUA DE CARDS
         setInterval(dados_atualizacao, 5000)
         //
+        
+        
+        
         ipcRenderer.on('serial_consulda_de_dado_res', function(event, dado){ 
             atualizacao_de_card(dado)
         })
         
         function atualizacao_de_card(dado){
-            
+
             // estilo de dados
             //dado{
             //     ph:
@@ -306,12 +306,84 @@
             temperatura_01.innerText = `TEMPERATURA = ${temperatura}`
             turbidez_01.innerText = `TURBIDEZ = ${turbidez}`
             
-            
+            consulta_dados_definicao(dados)
+            return dados
         } 
 
         //BOTAO ATUALIZAR DADOS CARD
         botao_dados_card = document.getElementById("botao_dados_card")
         botao_dados_card.onclick = function(){dados_atualizacao()}
+
+
+
+        //VERIFICANDO DEFINIÇOES
+
+        function consulta_dados_definicao(dados){
+            //colsulta definicopes e altera estado do card
+            chamada = "consulta_de_dados"
+            ipcRenderer.send('consulta_dados_definicoes', chamada);
+            ipcRenderer.on('consulta_dados_definicoes_res', function(event, def_res){ 
+                
+                def_res = def_res.toString()
+                var def  = JSON.parse(def_res)
+                alterar_estado_card(def, dados)
+            })
+           
+            
+        } 
+        function alterar_estado_card(def,dados){
+            // variavel def - definicoes colocadas pelo usuario
+            // variavel dados - dados coletado do arduino e recebido pelo front
+            
+            //console.log(`testando funcao - ${dados.temperatura} `)
+            //console.log(`testando funcao - ${def.temp_min} `)
+            if (dados.temperatura < def.temp_min || dados.temperatura>def.temp_max){
+                console.log("TEMPERATURA FORA DE ORDEM")
+                notificacao_vermelho(notificacao_card_01, card_01)
+
+                notificacao_dados_individuais_vermelho(temperatura_01)
+            }
+            else{
+                notificacao_dados_individuais_verde(temperatura_01)
+            }
+            if (dados.ph < def.ph_min || dados.ph>def.ph_max){
+                console.log("PH FORA DE ORDEM")
+                notificacao_vermelho(notificacao_card_01, card_01)
+
+                notificacao_dados_individuais_vermelho(ph_01)
+            }
+            else{
+                notificacao_dados_individuais_verde(ph_01)
+            }
+            if (dados.turbidez < def.turbidez_min || dados.turbidez>def.turbidez_max){
+                console.log("TURBIDEZ FORA DE ORDEM")
+                notificacao_vermelho(notificacao_card_01, card_01)
+
+                notificacao_dados_individuais_vermelho(turbidez_01)
+            }
+            else{
+                notificacao_dados_individuais_verde(turbidez_01)
+            }
+
+            if (dados.temperatura > def.temp_min && dados.temperatura <def.temp_max
+            && dados.ph > def.ph_min && dados.ph <def.ph_max
+            && dados.turbidez > def.turbidez_min && dados.turbidez < def.turbidez_max){
+                
+                console.log("DADOS OK")
+                notificacao_verde(notificacao_card_01, card_01)
+
+            }
+
+        }
+        //funcoes de tratamento de notificaçoes dos dados individuais
+        function notificacao_dados_individuais_vermelho(variavel){
+            variavel.style.boxShadow = "0px 8px 15px rgb(255, 0, 0)"
+            variavel.style.borderColor = "rgb(255, 0, 0)"
+        }
+        function notificacao_dados_individuais_verde(variavel){
+            variavel.style.boxShadow = "0px 0px 0px rgba(0, 0, 0, 0)"
+            variavel.style.borderColor = "rgba(235, 235, 247, 0.459)"
+        }
     </script>
         
     

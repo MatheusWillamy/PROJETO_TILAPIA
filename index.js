@@ -12,7 +12,7 @@ function serial_consulta_de_dado(){
         dado = data.toString()
         //console.log(`stdout: ${data}`);
         
-        return dado;
+        
     })
 
     child_Python.stderr.on('data', (data) =>{

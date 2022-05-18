@@ -115,7 +115,7 @@
             }
             ipcRenderer.on('consulta_dados_definicoes_res', function(event, dados){
                     dados_retorno(dados)
-                    console.log(dados)
+                    //console.log(dados)
             })
             function dados_retorno(dados){
                 var definicoes = JSON.parse(dados)
