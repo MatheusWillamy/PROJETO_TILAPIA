@@ -33,7 +33,7 @@ div#perfil{
 div#main{
     display: flex;
     flex-direction: row;
-    height: 90vh;
+    height: 92vh;
     position: relative;
     background-color: #0e0d2c;
 }
