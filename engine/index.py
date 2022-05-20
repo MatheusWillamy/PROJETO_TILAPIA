@@ -8,7 +8,7 @@ import json
 
 
 lista_de_dados = {
-    "ph": random.randrange(0, 4),
+    "ph": random.randrange(0, 8),
     "temperatura":  random.randrange(28, 37),
     "turbidez":  random.randrange(500, 3000, 100)
 }
