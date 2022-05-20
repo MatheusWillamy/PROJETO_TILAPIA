@@ -2,7 +2,8 @@
 html, body{
     margin: 0px;
     padding: 0px;
-    background-color: rgb(255, 255, 255);
+    background-color: #19185100;
+    
 }
 /* ESTILOS SUPERIORES*/
 .titulo{
@@ -10,6 +11,9 @@ html, body{
     width: auto;
     height: 70px;
     text-align: center;
+    border-bottom-width: 3px;
+    border-bottom-style: solid;
+    border-bottom-color: rgba(255, 255, 255, 0.123);;
     
     
 }
@@ -23,17 +27,8 @@ div#perfil{
     margin-right: 20px;
 }
 
-/* ABA DE NAVEGAÇÃO*/
-div#navegação{
-    width: 70px;
-    height: 90vh;
-    background-color: #19185100;
-    float: left;
-    border-bottom-right-radius: 2vh;
-    border-top-right-radius: 2vh;
-    box-shadow:16px 22px 22px rgba(0, 0, 0, 0);
-    
-}
+
+
 /* ESTILO MAIN*/
 div#main{
     display: flex;
@@ -152,43 +147,15 @@ div#nome_card{
 
 
 
-.navegacao{
-    width: 55px;
-    height: 55px;
-    margin-top: 20px;
-    margin-left: 4px;
-    background-color: #4c48a256;
-    border-radius: 65px;
-    box-shadow:3px 8px 15px rgba(0, 0, 0, 0.20);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
-    
-}
 
-@keyframes animatee{
-    100%{
-    width: 70px;
-    height: 70px;
-    margin-left: 5px;}
 
-}
+
 @keyframes animator{
     100%{width:420px;
     height: 530px;}
 }
 
-.navegacao_div{
-    width: auto;
-    height: 90vh;
-}
-.navegacao:hover{
-    animation-name: animatee;
-    animation-duration: 0.5s;
-    animation-fill-mode: forwards;
 
-}
 
 
 .card:hover{
@@ -204,12 +171,7 @@ div#nome_card{
 
 
 
-.icone{
-    width: 30px;
-    height: auto;
-    
-    
-}
+
 /* Estilo texte notificação */
 .botao_teste_notificacao_verde{
     background-color: rgb(0, 255, 55);

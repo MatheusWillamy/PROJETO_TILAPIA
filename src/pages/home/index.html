@@ -14,13 +14,12 @@
     <link href="https://fonts.googleapis.com/css2? família=Radio+Canada:wght@500&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="../../componentes/barra_de_navegação/index.css">
+
     <script type="text/javascript" src="index.js"></script>
 </head>
 <body>
     
-    
-    <div class="correcao">
-    </div>
     
     
     
@@ -28,31 +27,27 @@
         <div id="perfil"></div>
     </div>
     
+            
+        
+    
     <div id="main">
-        <div class="navegacao_div">
-
-            <div id="navegação">
-                <div id="casa" class="navegacao">
-                    <img src="../../componentes/imagens/navegação/casa.png" class="icone" >
-                </div>
-                <div id="dispositivos" class="navegacao">
-                    <img src="../../componentes/imagens/navegação/cardapio.png" class="icone">
-                </div>
-                <div id="adicionar" class="navegacao" onclick="window.location='../adicionar/index.html'">
-                    <img src="../../componentes/imagens/navegação/mais.png" class="icone">
-                </div>
-                <div id="configuracoes" class="navegacao" onclick="window.location='../definicoes/index.html'" >
-                    <img src="../../componentes/imagens/navegação/definicoes.png" class="icone" >
-                </div>
-                <div id="sair" class="navegacao">
-                    <img src="../../componentes/imagens/navegação/saida.png" class="icone">
-                </div>
+        <div id="navegação">
+            <div id="casa" class="navegacao">
+                <img src="../../componentes/imagens/navegação/casa.png" class="icone" >
+            </div>
+            <div id="dispositivos" class="navegacao">
+                <img src="../../componentes/imagens/navegação/cardapio.png" class="icone">
+            </div>
+            <div id="adicionar" class="navegacao" onclick="window.location='../adicionar/index.html'">
+                <img src="../../componentes/imagens/navegação/mais.png" class="icone">
+            </div>
+            <div id="configuracoes" class="navegacao" onclick="window.location='../definicoes/index.html'" >
+                <img src="../../componentes/imagens/navegação/definicoes.png" class="icone" >
+            </div>
+            <div id="sair" class="navegacao">
+                <img src="../../componentes/imagens/navegação/saida.png" class="icone">
             </div>
         </div>
-        
-        
-        
-        
         <div id="linha_de_apresentacao">
             <div class="prender">
                 <div id="card_01" class="card">
@@ -126,7 +121,7 @@
                     <div id="serial_teste"></div>
                 </div>
                 <div id="tanque"></div>
-            </div> -->
+            </div> 
             <div class="botao_dados_card" id="botao_dados_card">
                 ATUALIZAR
             </div>
@@ -157,7 +152,7 @@
                 <div id="amarelo_4" class="botao_teste_notificacao_amarelo"></div>
                 <div id="vermelho_4" class="botao_teste_notificacao_vermelho"></div>
             </div>
-        </div>
+        </div>-->
         
     </div>
     
@@ -176,23 +171,23 @@
         const notificacao_card_03 = window.document.getElementById("notificacao_card_03")
         const notificacao_card_04 = window.document.getElementById("notificacao_card_04")
 
-        //BOTOES TESTE
-        const verde_1 = window.document.getElementById("verde_1")
-        const amarelo_1 = window.document.getElementById("amarelo_1")
-        const vermelho_1 = window.document.getElementById("vermelho_1")
+        /*BOTOES TESTE
+        //const verde_1 = window.document.getElementById("verde_1")
+        //const amarelo_1 = window.document.getElementById("amarelo_1")
+        //const vermelho_1 = window.document.getElementById("vermelho_1")
 
-        const verde_2 = window.document.getElementById("verde_2")
-        const amarelo_2 = window.document.getElementById("amarelo_2")
-        const vermelho_2 = window.document.getElementById("vermelho_2")
+        //const verde_2 = window.document.getElementById("verde_2")
+        //const amarelo_2 = window.document.getElementById("amarelo_2")
+        //const vermelho_2 = window.document.getElementById("vermelho_2")
 
-        const verde_3 = window.document.getElementById("verde_3")
-        const amarelo_3 = window.document.getElementById("amarelo_3")
-        const vermelho_3 = window.document.getElementById("vermelho_3")
+        //const verde_3 = window.document.getElementById("verde_3")
+        //const amarelo_3 = window.document.getElementById("amarelo_3")
+        //const vermelho_3 = window.document.getElementById("vermelho_3")
 
-        const verde_4 = window.document.getElementById("verde_4")
-        const amarelo_4 = window.document.getElementById("amarelo_4")
-        const vermelho_4 = window.document.getElementById("vermelho_4")
-
+        //const verde_4 = window.document.getElementById("verde_4")
+        //const amarelo_4 = window.document.getElementById("amarelo_4")
+        //const vermelho_4 = window.document.getElementById("vermelho_4")
+        //
         // LISTAGEM DE EVENTOS NOTIFICAÇÕES 
         // BOTOES DE TESTE
         verde_1.onclick = function(){notificacao_verde(notificacao_card_01, card_01)}
@@ -209,7 +204,7 @@
         vermelho_2.onclick = function(){notificacao_vermelho(notificacao_card_02, card_02)}
         vermelho_3.onclick = function(){notificacao_vermelho(notificacao_card_03, card_03)}
         vermelho_4.onclick = function(){notificacao_vermelho(notificacao_card_04, card_04)}
-
+        */
         //FUNÇÕES DE NOTIFICAÇÃO
         function notificacao_verde(notificacao, card){
             notificacao.classList.remove("notificacao_animacao")
@@ -319,8 +314,8 @@
         } 
 
         //BOTAO ATUALIZAR DADOS CARD
-        botao_dados_card = document.getElementById("botao_dados_card")
-        botao_dados_card.onclick = function(){dados_atualizacao()}
+        //botao_dados_card = document.getElementById("botao_dados_card")
+        //botao_dados_card.onclick = function(){dados_atualizacao()}
 
 
 
