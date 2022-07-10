@@ -8,5 +8,5 @@
 # Estados de card
     Os card tem dois estados, um definido como online quando todos os paramentros estão dentro dos especificados.
 
-<img src="/imagens_projeto/estado_online.png>
+<img src="/imagens_projeto/estado_online.png">
 
