@@ -10,3 +10,6 @@
 
 <img src="/imagens_projeto/estado_online.png">
 
+## fsadf
+    O segundo estado é o offline, ele aparece quando um ou mais dos parametros estão fora da faixa especificada nas definições. Ele mostra qual card está com problema, junto a qual parametro está fora da faixa.
+
