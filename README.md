@@ -5,3 +5,8 @@
     Tela inicial do proejto, apresentando uma simulação de um card com informações de um tanque de viveira, onde é apresentado os dados de PH, Temperatura e Turbidez.
 <img src="/imagens_projeto/tela_inicial.png">
 
+# Estados de card
+    Os card tem dois estados, um definido como online quando todos os paramentros estão dentro dos especificados.
+
+<img src="/imagens_projeto/estado_online.png>
+
