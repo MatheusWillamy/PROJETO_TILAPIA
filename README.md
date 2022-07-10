@@ -19,6 +19,6 @@
     Nessa tela as definições de operagem podem ser especificadas, entre minimo e maximo. No exemplo 
     espeficidado temos, temperatura, PH e Turbidez.
 
-<img src= "/imagens_projeto/tela_definicoes">
+<img src= "/imagens_projeto/tela_definicoes.png">
 
 
