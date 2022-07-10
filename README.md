@@ -7,9 +7,11 @@
 
 # Estados de card
     Os card tem dois estados, um definido como online quando todos os paramentros estão dentro dos especificados.
-
+## Online
 <img src="/imagens_projeto/estado_online.png">
 
-## fsadf
+## Offline
     O segundo estado é o offline, ele aparece quando um ou mais dos parametros estão fora da faixa especificada nas definições. Ele mostra qual card está com problema, junto a qual parametro está fora da faixa.
+
+<img src="/imagens_projeto/estado_offline.png">
 
