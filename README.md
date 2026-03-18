@@ -4,7 +4,7 @@
 
 # Tela inicial do programa
     Tela inicial do proejto, apresentando uma simulação de um card com informações 
-    de um tanque de viveira, onde é apresentado os dados de PH, Temperatura e Turbidez.
+    de um tanque de viveira, onde é apresentado os dados de PH, Temperatura e Turbidez..
 <img src="/imagens_projeto/tela_inicial.png">
 
 # Estados de card
